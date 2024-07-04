@@ -1,6 +1,7 @@
 import re
 
-reg = re.compile("([A-Z][a-z]+) ([A-Z]*) ([A-Z][a-z]+)")
+# modify the regular expression to find all the expressions
+reg = re.compile("[A-Z][a-z\.]+ [A-Z]*([a-z\.]+)?( [A-Z][a-z\.]+)?((,)? [A-Z]*[a-z]*[A-Z]*)*")
 
 m = reg.match("Uwe Meier")
 print(m)
@@ -16,6 +17,8 @@ m = reg.match("Dr. Uwe Meier, MSc")
 print(m)
 m = reg.match("Dr. Alfred Nobel, PhD, PhD, PhD, MSc")
 print(m)
+
+
 m = reg.match("Dr. Dr. Dr. Theodore Hesburgh, PhD, PhD, PhD, MSc")
 print(m)
 m = reg.match("Albert KD Klein, PhD, PhD, PhD, MSc")
